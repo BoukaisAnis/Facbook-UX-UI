@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/facbooke logo.png">
+    <link rel="stylesheet" href="../styles/login_page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Faceook - sign in or log in</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="/images/fb image.svg" alt=" Facebook Logo" class="logo-image">
+            <h3>With Facebook, share and stay in touch with those around you.</h3>
+        </div>
+        <div class="form">
+            <form class="form">
+                <input type="text" placeholder="Email or phone number" required>
+                <input type="password" placeholder="Password" required>
+                <p id="error-msg" style="color: red; display: none; margin: 10px ;">Wrong password! Please try again.</p>
+
+                <button type="submit" class="login-button">Log In</button>
+                <script>
+                    document.querySelector(".login-button").addEventListener("click", function(event) {
+                        event.preventDefault(); // Prevent form submission
+                        
+                        let emailInput = document.querySelector('input[type="text"]').value.trim();
+                        let passwordInput = document.querySelector('input[type="password"]').value.trim();
+                        let errorMsg = document.getElementById("error-msg");
+                
+                        // Hide error message initially
+                        errorMsg.style.display = "none";
+                
+                        if (emailInput === "" || passwordInput === "") {
+                            alert("Please fill in all fields.");
+                            return;
+                        }
+                        if (passwordInput === "Anis1234") {
+                            alert("Welcome back, Anis!");
+                            window.location.href = "../pages/login_page.html";
+                            return;
+                        }
+                
+                        if (passwordInput !== "Anis1234") { // Change "correctpassword" to your validation logic
+                            errorMsg.style.display = "block"; // Show error message if password is wrong
+                        }
+                    });
+                </script>
+                
+                                <div class="forgot-password">
+                    <a href="/pages/forgot_pass.html">Forgot your password?</a>
+                </div>
+
+                <div class="create-account">
+                  
+                    <a href="#" class="create-account-button">Create new account</a>
+                </div>
+            </form>
+            </form>
+        </div>
+    </div>
+
+
+
+    
+</body>
+</html>

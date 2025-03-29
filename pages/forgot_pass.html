@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/facbooke logo.png">
+    <link rel="stylesheet" href="/styles/forgot_pas.css">
+
+    <title>Forgot pasword</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo"><a href="/pages/login_page.html">
+            <img src="/images/fb image.svg" alt=" Facebook Logo" class="logo-image">
+        </a>
+        </div>
+        <form class="form">
+            <input type="text" placeholder="Email or phone number" required>
+            <input type="password" placeholder="Password" required>            
+            <p id="error-msg" style="color: red; display: none; margin: 10px ;">Wrong password!</p>
+
+            <button type="submit" class="login-button">Log In</button>
+            </form>
+            <div class="forgot-info">
+                <a href="">Forgot your account information?</a>
+            </div>
+    </div>
+    <section class="find_acc">
+        <div class="find_acc_info">
+            <h1>Find your account</h1>
+            <div class="divider"></div>
+
+            <p>Please enter your email or mobile number to search for your account.</p>
+        </div>
+
+            <form>
+                <input type="text" placeholder="Email or phone number" required>
+                <div class="divider"></div>
+                <div class="buttons">
+                    <div class="cancel">
+                        <a href="/pages/login_page.html"> <button type="button" class="cancel-btn">Cancel</button>
+                        </a>
+                    </div>
+                    <button type="submit" class="search-btn">To research</button>
+                
+            </form>
+        </div>
+        
+
+    </section>
+    <script>
+        document.querySelector(".login-button").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let emailInput = document.querySelector('input[type="text"]').value.trim();
+            let passwordInput = document.querySelector('input[type="password"]').value.trim();
+            let errorMsg = document.getElementById("error-msg");
+    
+            // Hide error message initially
+            errorMsg.style.display = "none";
+    
+            if (emailInput === "" || passwordInput === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+            if (passwordInput === "Anis1234") {
+                alert("Welcome back, Anis!");
+                window.location.href = "../pages/login_page.html";
+                return;
+            }
+    
+            if (passwordInput !== "Anis1234") { // Change "correctpassword" to your validation logic
+                errorMsg.style.display = "block"; // Show error message if password is wrong
+            }
+        });
+    </script>
+</body>
+</html>
